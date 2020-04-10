@@ -70,14 +70,16 @@ function filteredClients() {
       );
     });
     updateData(filteredClients);
-    if (filteredClients.length == 0) {
-      noResultsSection();
-    } else {
-      normalListSection();
-    }
+    displayMode(filteredClients);
+    // if (filteredClients.length == 0) {
+    //   noResultsSection();
+    // } else {
+    //   normalListSection();
+    // }
   } else {
     updateData(clients);
-    normalListSection();
+
+    // normalListSection();
   }
 }
 function sumUp(clientsList = clients) {
@@ -89,11 +91,32 @@ function sumUp(clientsList = clients) {
 function removeCurrency(amount) {
   return Number(amount.slice(1));
 }
-function noResultsSection() {
-  document.querySelector(".normalList").style.display = "none";
-  document.querySelector(".nothingFound").style.display = "block";
+// function noResultsSection() {
+//   document.querySelector(".normalList").style.display = "none";
+//   document.querySelector(".nothingFound").style.display = "block";
+// }
+// function normalListSection() {
+//   document.querySelector(".normalList").style.display = "block";
+//   document.querySelector(".nothingFound").style.display = "none";
+// }
+function displayMode(filteredClients) {
+  if (filteredClients.length == 0) {
+    document.querySelector(".normalList").style.display = "none";
+    document.querySelector(".nothingFound").style.display = "block";
+  } else {
+    document.querySelector(".normalList").style.display = "block";
+    document.querySelector(".nothingFound").style.display = "none";
+  }
 }
-function normalListSection() {
-  document.querySelector(".normalList").style.display = "block";
-  document.querySelector(".nothingFound").style.display = "none";
+function maleClients() {
+  const male = clients.filter((client) => {
+    if (client.gender == "Male") return client;
+  });
+  updateData(male);
+}
+function femaleClients() {
+  const female = clients.filter((client) => {
+    if (client.gender == "Female") return client;
+  });
+  updateData(female);
 }
