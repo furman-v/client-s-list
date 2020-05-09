@@ -3,9 +3,6 @@
   <head>
     <title>My Clients Data</title>
     <link rel="stylesheet" type="text/css" href="styles/styles.css" />
-    <script type="text/javascript" src="scripts/data.js"></script>
-    <script type="text/javascript" src="scripts/script.js"></script>
-    <script src="data.json"></script>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -67,6 +64,13 @@
         </form>
       </nav>
     </section>
+    <section class="container">
+      <div>
+        <button class="btn btn-primary btn-block" onclick="addNewClient()">
+          ADD NEW CLIENT
+        </button>
+      </div>
+    </section>
     <section class="container normalList">
       <div class="row">
         <div class="col-12">
@@ -89,11 +93,7 @@
       </div>
     </section>
   </body>
-  <script>
-    (function () {
-      displayData();
-    })();
-  </script>
+
   <script
     src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -109,11 +109,14 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"
   ></script>
-  <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
-
-  <!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
   <script type="text/javascript" src="scripts/firebase.js"></script>
+  <script type="text/javascript" src="scripts/script.js"></script>
+  <script type="text/javascript" src="scripts/data.js"></script>
+  <script>
+    (function () {
+      displayData();
+    })();
+  </script>
 </html>

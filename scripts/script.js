@@ -1,4 +1,5 @@
 function displayData(clientsList = clients) {
+  clearedLi();
   const ul = document.querySelector("#clientsData");
   clientsList.forEach((client) => {
     ul.appendChild(getLiElement(client));
@@ -119,4 +120,26 @@ function femaleClients() {
     if (client.gender == "Female") return client;
   });
   updateData(female);
+}
+function addNewClient() {
+  const data = {
+    id: 1,
+    firstName: "Demetris",
+    lastName: "Nerheny",
+    email: "dnerheny0@timesonline.co.uk",
+    gender: "Male",
+    amount: "$2.08",
+    date: "7/28/2019",
+    avatar: "https://robohash.org/omnisveniamqui.jpg?size=50x50&set=set1",
+  };
+  const newID = database.ref().child("clients").push().key;
+  let updated = {};
+  updated[`clients/${newID}`] = data;
+  database.ref().update(updated, function (error) {
+    if (error) {
+      console.error("Warning! Error occured");
+    } else {
+      console.log("Client was successfully added");
+    }
+  });
 }
